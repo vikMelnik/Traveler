@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pizza">Pizza</string>
     <string name="header">Header</string>
+    <string name="restaurants">Restaurants</string>
     <string-array name="foodList">
         <item>Restaurants</item>
         <item>Bars</item>
@@ -32,27 +33,4 @@
         <item>Beauty Salons</item>
         <item>Post office</item>
     </string-array>
-    <string name="restaurants">Restaurants</string>
-    <string name="bars">Bars</string>
-    <string name="cafe">Cafe</string>
-    <string name="foodOrder">Food order</string>
-    <string name="museums">Museums</string>
-    <string name="cinemas">Cinemas</string>
-    <string name="nightClubs">Night clubs</string>
-    <string name="gyms">GYM\'s</string>
-    <string name="exhibitions">Exhibitions</string>
-    <string name="shoppingCenters">Shopping centers</string>
-    <string name="carDealerships">Car dealerships</string>
-    <string name="hotels">Hotels</string>
-    <string name="petrolStation">Petrol station</string>
-    <string name="carParks">Car parks</string>
-    <string name="carRental">Car rental</string>
-    <string name="carWashes">Car washes</string>
-    <string name="dryCleaning">Dry cleaning</string>
-    <string name="aTMs">ATMs</string>
-    <string name="clinicsAndHospitals">Clinics and hospitals</string>
-    <string name="pharmacies">Pharmacies</string>
-    <string name="beautySalons">Beauty Salons</string>
-    <string name="postOffice">Post office</string>
-    <string name="other">Other…</string>
 </resources>

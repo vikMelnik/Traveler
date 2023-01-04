@@ -2,13 +2,11 @@ package com.example.traveler.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.traveler.R
 import com.example.traveler.databinding.FragmentRecyclerItemHeaderBinding
 import com.example.traveler.databinding.FragmentRecyclerItemStartGeneralBinding
-import com.example.traveler.model.GeneralListTraveler
-import com.example.traveler.model.TYPE_NAME
+import com.example.traveler.model.entities.GeneralListTraveler
+import com.example.traveler.model.entities.TYPE_NAME
 
 class StartListRecyclerAdapter(private val listData: ArrayList<GeneralListTraveler>)
 	: RecyclerView.Adapter<RecyclerView.ViewHolder>() {

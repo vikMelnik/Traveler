@@ -3,7 +3,7 @@ package com.example.traveler.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.traveler.R
-import com.example.traveler.view.startList.StartListFragment
+import com.example.traveler.view.fragments.StartListFragment
 
 
 class MainActivity : AppCompatActivity() {
