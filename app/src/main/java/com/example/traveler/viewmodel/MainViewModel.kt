@@ -2,6 +2,6 @@ package com.example.traveler.viewmodel
 
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+abstract class MainViewModel : ViewModel() {
 	// TODO: Implement the ViewModel
 }

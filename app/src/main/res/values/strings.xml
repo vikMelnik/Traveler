@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">Traveler</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pizza">Pizza</string>
+    <string name="header">Header</string>
+    <string name="restaurants">Restaurants</string>
+    <string-array name="foodList">
+        <item>Restaurants</item>
+        <item>Bars</item>
+        <item>Cafe</item>
+        <item>Food order</item>
+    </string-array>
+    <string-array name="lifeList">
+        <item>Museums</item>
+        <item>Cinemas</item>
+        <item>Night clubs</item>
+        <item>GYM\'s</item>
+        <item>Exhibitions</item>
+    </string-array>
+    <string-array name="servicesList">
+        <item>Shopping centers</item>
+        <item>Car dealerships</item>
+        <item>Hotels</item>
+        <item>Petrol station</item>
+        <item>Car parks</item>
+        <item>Car rental</item>
+        <item>Car washes</item>
+        <item>Dry cleaning</item>
+        <item>ATMs</item>
+        <item>Clinics and hospitals</item>
+        <item>Pharmacies</item>
+        <item>Beauty Salons</item>
+        <item>Post office</item>
+    </string-array>
 </resources>
