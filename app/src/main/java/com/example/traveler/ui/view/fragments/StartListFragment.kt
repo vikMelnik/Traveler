@@ -1,4 +1,4 @@
-package com.example.traveler.view.fragments
+package com.example.traveler.ui.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import com.example.traveler.databinding.FragmentStartListBinding
 import com.example.traveler.model.entities.GeneralListTraveler
 import com.example.traveler.model.entities.TYPE_HEADER
 import com.example.traveler.model.entities.TYPE_NAME
-import com.example.traveler.view.adapter.StartListRecyclerAdapter
+import com.example.traveler.ui.view.adapter.StartListRecyclerAdapter
 
 class StartListFragment : Fragment() {
 

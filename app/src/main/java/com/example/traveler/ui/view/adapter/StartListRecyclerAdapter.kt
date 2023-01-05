@@ -1,4 +1,4 @@
-package com.example.traveler.view.adapter
+package com.example.traveler.ui.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

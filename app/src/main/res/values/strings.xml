@@ -33,4 +33,24 @@
         <item>Beauty Salons</item>
         <item>Post office</item>
     </string-array>
+    <string-array name="ukraine">
+        <item>Kyiv</item>
+        <item>Zaporizhzhya</item>
+        <item>Kharkiv</item>
+        <item>Donetsk</item>
+        <item>Odesa</item>
+        <item>Dnipro</item>
+        <item>Lviv</item>
+        <item>Kryvyi Rih</item>
+        <item>Poltava</item>
+        <item>Ivano-Frankivsk</item>
+    </string-array>
+    <string-array name="poland">
+        <item>Warsaw</item>
+        <item>Krakow</item>
+        <item>Lodz</item>
+        <item>Gdansk</item>
+        <item>Poznan</item>
+        <item>Wroclaw</item>
+    </string-array>
 </resources>
