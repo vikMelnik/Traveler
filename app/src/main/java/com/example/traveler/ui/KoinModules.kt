@@ -4,7 +4,7 @@ package com.example.traveler.ui
 import com.example.traveler.model.entities.listEntities.Restaurants
 import com.example.traveler.model.repository.Repository
 import com.example.traveler.model.repository.RepositoryImpl
-import com.example.traveler.viewmodel.RestaurantsListViewModel
+import com.example.traveler.ui.restaurans.RestaurantsListViewModel
 import com.example.traveler.viewmodel.RestaurantsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -15,6 +15,6 @@ val appModule = module {
 		//View models
 	//viewModel{MainViewModel()}
 	viewModel<RestaurantsViewModel>{ RestaurantsViewModel(get()) }
-	viewModel<RestaurantsListViewModel>{RestaurantsListViewModel(get())} //????????
+	viewModel<RestaurantsListViewModel>{ RestaurantsListViewModel(get()) } //????????
 	}
 
