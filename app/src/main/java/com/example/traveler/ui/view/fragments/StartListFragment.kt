@@ -12,28 +12,17 @@ import com.example.traveler.model.entities.TYPE_HEADER
 import com.example.traveler.model.entities.TYPE_NAME
 import com.example.traveler.ui.view.adapter.StartListRecyclerAdapter
 
-class StartListFragment : Fragment() {
+class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
+	FragmentStartListBinding::inflate) {
 
 	companion object {
 		fun newInstance() = StartListFragment()	}
-
-	private lateinit var binding: FragmentStartListBinding
-
 
 	//private val viewModel: MainViewModel by viewModel()
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList())
 	}
-	override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
-		binding = FragmentStartListBinding.inflate(inflater, container, false)
-		return binding.root
-	}
-
-
 
 	private fun getGeneralList(): ArrayList<GeneralListTraveler> {
 		val listGeneral = arrayListOf<GeneralListTraveler>()

@@ -1,39 +1,24 @@
 package com.example.traveler.ui.view.fragments.restaurantfragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.traveler.R
 import com.example.traveler.databinding.FragmentRestaurantDetailsBinding
 import com.example.traveler.utilites.hide
 import com.example.traveler.model.AppState
 import com.example.traveler.model.entities.listEntities.Restaurants
 import com.example.traveler.utilites.show
-import com.example.traveler.ui.view.fragments.EntitiesFragment
+import com.example.traveler.ui.view.fragments.ViewBindingFragment
 import com.example.traveler.viewmodel.RestaurantsViewModel
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailsRestaurantFragment: EntitiesFragment() {
-
-	companion object {
-		fun newInstance() = DetailsRestaurantFragment()
-	}
-
-	private var _binding:FragmentRestaurantDetailsBinding? = null
-	private val binding get() = _binding!!
+class DetailsRestaurantFragment: ViewBindingFragment<FragmentRestaurantDetailsBinding>(
+	FragmentRestaurantDetailsBinding::inflate
+) {
 
 	//Add koin ViewModel
 	private val restaurantsViewModel: RestaurantsViewModel by viewModel()
-
-	override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
-		_binding = FragmentRestaurantDetailsBinding.inflate(inflater, container, false)
-		return binding.root
-	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
@@ -59,7 +44,6 @@ class DetailsRestaurantFragment: EntitiesFragment() {
 				progressBar.show()
 				widgetGroup.hide()
 			}
-
 		}
 	}
 
@@ -78,8 +62,4 @@ class DetailsRestaurantFragment: EntitiesFragment() {
 		description.text = restaurantData.description
 	}
 
-	override fun onDestroyView() {
-		super.onDestroyView()
-		_binding = null
-	}
 }

@@ -3,8 +3,7 @@ package com.example.traveler.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.traveler.R
-import com.example.traveler.ui.view.fragments.StartListFragment
-import com.example.traveler.ui.view.fragments.restaurantfragments.DetailsRestaurantFragment
+import com.example.traveler.ui.view.fragments.ViewBindingFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
 		if (savedInstanceState == null) {
 			supportFragmentManager.beginTransaction()
-				.replace(R.id.container, DetailsRestaurantFragment.newInstance())
+				.replace(R.id.container, ViewBindingFragment.newInstance())
 				.commitNow()
 		}
 	}
