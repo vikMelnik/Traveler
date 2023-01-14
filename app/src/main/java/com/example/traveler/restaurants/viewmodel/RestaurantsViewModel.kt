@@ -1,6 +1,7 @@
-package com.example.traveler.viewmodel
+package com.example.traveler.restaurants.viewmodel
 
-import com.example.traveler.model.AppState
+import com.example.traveler.base.AppState
+import com.example.traveler.base.viewmodel.MainViewModel
 import com.example.traveler.model.repository.Repository
 
 

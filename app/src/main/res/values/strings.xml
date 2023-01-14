@@ -5,6 +5,10 @@
     <string name="pizza">Pizza</string>
     <string name="header">Header</string>
     <string name="restaurants">Restaurants</string>
+    <string name="welcomeFragment">Welcome</string>
+    <string name="welcomeCountry">Country:</string>
+    <string name="welcomeCity">City:</string>
+    <string name="picture">Picture of the city</string>
     <string-array name="foodList">
         <item>Restaurants</item>
         <item>Bars</item>
@@ -33,7 +37,12 @@
         <item>Beauty Salons</item>
         <item>Post office</item>
     </string-array>
+    <string-array name="country">
+        <item>Ukraine</item>
+        <item>Poland</item>
+    </string-array>
     <string-array name="ukraine">
+        <item>"false"</item>
         <item>Kyiv</item>
         <item>Zaporizhzhya</item>
         <item>Kharkiv</item>

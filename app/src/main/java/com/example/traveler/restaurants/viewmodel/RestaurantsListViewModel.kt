@@ -1,8 +1,8 @@
-package com.example.traveler.ui.restaurans
+package com.example.traveler.restaurants.viewmodel
 
-import com.example.traveler.model.AppState
+import com.example.traveler.base.AppState
 import com.example.traveler.model.repository.Repository
-import com.example.traveler.viewmodel.MainViewModel
+import com.example.traveler.base.viewmodel.MainViewModel
 
 
 class RestaurantsListViewModel(private val repository: Repository): MainViewModel() {

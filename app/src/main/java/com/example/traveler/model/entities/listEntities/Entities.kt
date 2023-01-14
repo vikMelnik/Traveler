@@ -10,7 +10,7 @@ fun  getUkrCityRestaurant() = listOf(
 	Restaurants(City("Kyiv","Ukr"),"Borisfen",
 		R.drawable.foodrestr, 5.5, "11:00 - 22:00","It was tasty food"),
 	Restaurants(City("Zaporizhzhya","Ukr"),"Borisfen",
-		R.drawable.foodrestr, 5.4,"11:00 - 22:00","It was tasty food"),
+		R.drawable.picture, 5.4,"11:00 - 22:00","It was tasty food"),
 	Restaurants(City("Kharkiv","Ukr"),"Borisfen",
 		R.drawable.foodrestr, 5.8,"11:00 - 21:00","It was tasty food"),
 	Restaurants(City("Donetsk","Ukr"),"Borisfen",

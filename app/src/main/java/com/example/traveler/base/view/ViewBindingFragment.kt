@@ -1,18 +1,21 @@
-package com.example.traveler.ui.view.fragments
+package com.example.traveler.base.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.example.traveler.ui.view.fragments.restaurantfragments.DetailsRestaurantFragment
+import com.example.traveler.ui.view.StartListFragment
+import com.example.traveler.welcomescreen.WelcomeScreenFragment
 
 abstract class ViewBindingFragment<T : ViewBinding>(
 	private val inflateBinding: (
 		inflater: LayoutInflater, root: ViewGroup?, attachToRoot: Boolean
 	) -> T
 ) : Fragment() {
+
 	private var _binding: T? = null
 
 	protected val binding: T
@@ -33,5 +36,5 @@ abstract class ViewBindingFragment<T : ViewBinding>(
 	}
 
 	companion object {
-		fun newInstance() = DetailsRestaurantFragment()	}
+		fun newInstance() = WelcomeScreenFragment()	}
 }

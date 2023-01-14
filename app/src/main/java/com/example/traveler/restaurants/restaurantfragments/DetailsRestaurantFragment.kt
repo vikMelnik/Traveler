@@ -1,15 +1,15 @@
-package com.example.traveler.ui.view.fragments.restaurantfragments
+package com.example.traveler.restaurants.restaurantfragments
 
 import android.os.Bundle
 import android.view.View
 import com.example.traveler.R
 import com.example.traveler.databinding.FragmentRestaurantDetailsBinding
 import com.example.traveler.utilites.hide
-import com.example.traveler.model.AppState
+import com.example.traveler.base.AppState
 import com.example.traveler.model.entities.listEntities.Restaurants
 import com.example.traveler.utilites.show
-import com.example.traveler.ui.view.fragments.ViewBindingFragment
-import com.example.traveler.viewmodel.RestaurantsViewModel
+import com.example.traveler.base.view.ViewBindingFragment
+import com.example.traveler.restaurants.viewmodel.RestaurantsViewModel
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -60,6 +60,17 @@ class DetailsRestaurantFragment: ViewBindingFragment<FragmentRestaurantDetailsBi
 		picImg.setImageResource(R.drawable.food)
 		timeWork.text = restaurantData.timeWork
 		description.text = restaurantData.description
+	}
+
+
+	companion object {
+		const val BUNDLE_EXTRA = "restaurant"
+
+		fun newInstance(bundle: Bundle): DetailsRestaurantFragment {
+			val fragment = DetailsRestaurantFragment()
+			fragment.arguments = bundle
+			return fragment
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.example.traveler.model
+package com.example.traveler.base
 
 sealed class AppState{
 

@@ -1,19 +1,21 @@
-package com.example.traveler.ui.view.fragments
+package com.example.traveler.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.traveler.R
+import com.example.traveler.base.view.ViewBindingFragment
 import com.example.traveler.databinding.FragmentStartListBinding
 import com.example.traveler.model.entities.GeneralListTraveler
 import com.example.traveler.model.entities.TYPE_HEADER
 import com.example.traveler.model.entities.TYPE_NAME
-import com.example.traveler.ui.view.adapter.StartListRecyclerAdapter
+import com.example.traveler.restaurants.restaurantfragments.RestaurantListFragment
 
 class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
 	FragmentStartListBinding::inflate) {
+
+	interface OnItemViewClickListener{
+		fun onItemViewClick(startList: GeneralListTraveler)
+	}
 
 	companion object {
 		fun newInstance() = StartListFragment()	}
@@ -21,7 +23,22 @@ class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
 	//private val viewModel: MainViewModel by viewModel()
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList())
+		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList()
+		,object : OnItemViewClickListener {
+			override fun onItemViewClick(startList: GeneralListTraveler) {
+				when (startList.name) {
+					"Restaurants" -> {
+						parentFragmentManager
+							.beginTransaction()
+							.replace(R.id.container, RestaurantListFragment.newInstance())
+							.addToBackStack("")
+							.commitAllowingStateLoss()
+					}
+				}
+					}
+				}
+			 )
+
 	}
 
 	private fun getGeneralList(): ArrayList<GeneralListTraveler> {
