@@ -5,6 +5,10 @@
     <string name="pizza">Pizza</string>
     <string name="header">Header</string>
     <string name="restaurants">Restaurants</string>
+    <string name="welcomeFragment">Welcome</string>
+    <string name="welcomeCountry">Country:</string>
+    <string name="welcomeCity">City:</string>
+    <string name="picture">Picture of the city</string>
     <string-array name="foodList">
         <item>Restaurants</item>
         <item>Bars</item>
@@ -32,5 +36,30 @@
         <item>Pharmacies</item>
         <item>Beauty Salons</item>
         <item>Post office</item>
+    </string-array>
+    <string-array name="country">
+        <item>Ukraine</item>
+        <item>Poland</item>
+    </string-array>
+    <string-array name="ukraine">
+        <item>"false"</item>
+        <item>Kyiv</item>
+        <item>Zaporizhzhya</item>
+        <item>Kharkiv</item>
+        <item>Donetsk</item>
+        <item>Odesa</item>
+        <item>Dnipro</item>
+        <item>Lviv</item>
+        <item>Kryvyi Rih</item>
+        <item>Melitopol</item>
+        <item>Ivano-Frankivsk</item>
+    </string-array>
+    <string-array name="poland">
+        <item>Warsaw</item>
+        <item>Krakow</item>
+        <item>Lodz</item>
+        <item>Gdansk</item>
+        <item>Poznan</item>
+        <item>Wroclaw</item>
     </string-array>
 </resources>

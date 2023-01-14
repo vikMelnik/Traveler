@@ -1,39 +1,45 @@
-package com.example.traveler.view.fragments
+package com.example.traveler.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.traveler.R
+import com.example.traveler.base.view.ViewBindingFragment
 import com.example.traveler.databinding.FragmentStartListBinding
 import com.example.traveler.model.entities.GeneralListTraveler
 import com.example.traveler.model.entities.TYPE_HEADER
 import com.example.traveler.model.entities.TYPE_NAME
-import com.example.traveler.view.adapter.StartListRecyclerAdapter
+import com.example.traveler.restaurants.restaurantfragments.RestaurantListFragment
 
-class StartListFragment : Fragment() {
+class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
+	FragmentStartListBinding::inflate) {
+
+	interface OnItemViewClickListener{
+		fun onItemViewClick(startList: GeneralListTraveler)
+	}
 
 	companion object {
 		fun newInstance() = StartListFragment()	}
 
-	private lateinit var binding: FragmentStartListBinding
-
-
 	//private val viewModel: MainViewModel by viewModel()
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList())
-	}
-	override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View {
-		binding = FragmentStartListBinding.inflate(inflater, container, false)
-		return binding.root
-	}
+		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList()
+		,object : OnItemViewClickListener {
+			override fun onItemViewClick(startList: GeneralListTraveler) {
+				when (startList.name) {
+					"Restaurants" -> {
+						parentFragmentManager
+							.beginTransaction()
+							.replace(R.id.container, RestaurantListFragment.newInstance())
+							.addToBackStack("")
+							.commitAllowingStateLoss()
+					}
+				}
+					}
+				}
+			 )
 
-
+	}
 
 	private fun getGeneralList(): ArrayList<GeneralListTraveler> {
 		val listGeneral = arrayListOf<GeneralListTraveler>()

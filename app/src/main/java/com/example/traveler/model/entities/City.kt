@@ -1,3 +1,7 @@
 package com.example.traveler.model.entities
 
-data class City(val nameCity: String = "Kyiv", val nameCountry: String = "Ukraine")
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class City(val nameCity: String = "Kyiv", val nameCountry: String = "Ukraine"): Parcelable
