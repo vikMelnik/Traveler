@@ -12,7 +12,7 @@ class RestaurantsListViewModel(private val repository: Repository): MainViewMode
 	private fun getDataFromLocalSource() {
 		localLiveData.value = AppState.Loading
 		Thread {
-			Thread.sleep(3000)
+			Thread.sleep(1000)
 			localLiveData.postValue(AppState.Success(repository.getRestaurantFromLocalStorageUkrCity()))
 		}.start()
 	}

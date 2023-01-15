@@ -1,5 +1,6 @@
 package com.example.traveler.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.example.traveler.R
@@ -18,11 +19,24 @@ class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
 	}
 
 	companion object {
-		fun newInstance() = StartListFragment()	}
+		fun newInstance(bundle: Bundle):StartListFragment{
+			val fragment = StartListFragment()
+			fragment.arguments = bundle
+			return fragment
+		}
+	}
 
 	//private val viewModel: MainViewModel by viewModel()
+	@SuppressLint("SetTextI18n")
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+
+		// Добавление аргументов
+		binding.welcomeCountry.text = requireArguments().getString("ARG_COUNTRY")
+		binding.welcomeCity.text = "${getString(R.string.welcome_to)} " +
+				"${requireArguments().getString("ARG_CITY")}"
+
+
 		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList()
 		,object : OnItemViewClickListener {
 			override fun onItemViewClick(startList: GeneralListTraveler) {

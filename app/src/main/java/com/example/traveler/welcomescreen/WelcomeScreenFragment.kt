@@ -4,28 +4,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
 import com.example.traveler.R
 import com.example.traveler.base.view.ViewBindingFragment
 import com.example.traveler.databinding.FragmentWelcomeScreenBinding
-import com.example.traveler.model.entities.listEntities.Restaurants
-import com.example.traveler.restaurants.restaurantfragments.RestaurantListFragment
 import com.example.traveler.ui.view.StartListFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 
 class WelcomeScreenFragment : ViewBindingFragment<FragmentWelcomeScreenBinding>(
 	FragmentWelcomeScreenBinding::inflate
 ) {
-
-	interface OnItemViewClickListener{
-		fun onItemViewClick()
-	}
 
 	companion object {
 		fun newInstance() = WelcomeScreenFragment()
@@ -34,19 +24,12 @@ class WelcomeScreenFragment : ViewBindingFragment<FragmentWelcomeScreenBinding>(
 	// TODO: Rename and change types of parameters
 	private var param1: String? = null
 	private var param2: String? = null
-	private var isFlag = false
+
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		isFlag = setupSpinner()
-
-		if (isFlag) {
-			parentFragmentManager.beginTransaction()
-			.replace(R.id.container, StartListFragment.newInstance())
-			.addToBackStack("")
-			.commitAllowingStateLoss()
-		}
+		setupSpinnerCountry()
 
 
 //		arguments?.let {
@@ -54,32 +37,64 @@ class WelcomeScreenFragment : ViewBindingFragment<FragmentWelcomeScreenBinding>(
 //			param2 = it.getString(ARG_PARAM2)
 	}
 
-
-	private fun setupSpinner(): Boolean {
-
-
-		var isF = true
-		val spinner = binding.nameSpinnerCity
-		val arrayAdapter =
-			ArrayAdapter.createFromResource(requireContext(),R.array.ukraine,
+	private fun setupSpinnerCountry() {
+		val spinnerCountry = binding.nameSpinnerCountry
+		val arrayAdapterCountry =
+			ArrayAdapter.createFromResource(requireContext(),R.array.country,
 				android.R.layout.simple_spinner_item)
-		spinner.adapter = arrayAdapter
-
-		spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+		spinnerCountry.adapter = arrayAdapterCountry
+		spinnerCountry.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 			override fun onItemSelected(
 				parent: AdapterView<*>,
 				view: View,
 				position: Int,
 				id: Long
 			) {
+				val someCountry = parent.getItemAtPosition(position).toString()
+				setupSpinner(someCountry)
+			}
 
+			override fun onNothingSelected(parent: AdapterView<*>?) {
+			}
+		}
+	}
 
-					var chooseCt = parent.getItemAtPosition(position).toString()
+	private fun setupSpinner(some: String) {
+		var someR = R.array.empty
 
-					if (chooseCt != "false"){
+		when (some) {
+			"Ukraine" -> {
+				someR = R.array.ukraine
+			}
+			"Poland" -> {
+				someR = R.array.poland
+			}
+		}
+
+		val spinnerCity = binding.nameSpinnerCity
+		val arrayAdapterCity =
+			ArrayAdapter.createFromResource(requireContext(),someR,
+				android.R.layout.simple_spinner_item)
+		spinnerCity.adapter = arrayAdapterCity
+
+		spinnerCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+			override fun onItemSelected(
+				parent: AdapterView<*>,
+				view: View,
+				position: Int,
+				id: Long
+			) {
+					val chooseCity = parent.getItemAtPosition(position).toString()
+
+				arguments = Bundle().apply {
+					putString("ARG_COUNTRY", some)
+					putString( "ARG_CITY", chooseCity)
+				}
+
+					if (chooseCity != "ChooseCity"){
 
 				parentFragmentManager.beginTransaction()
-					.add(R.id.container, StartListFragment.newInstance())
+					.replace(R.id.container, StartListFragment.newInstance(arguments!!))
 					.addToBackStack("")
 					.commitAllowingStateLoss()
 			}
@@ -138,7 +153,7 @@ class WelcomeScreenFragment : ViewBindingFragment<FragmentWelcomeScreenBinding>(
 		}
 		}
 		 */
-       return false
+
 	}
 }
 

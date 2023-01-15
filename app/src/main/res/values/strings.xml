@@ -9,6 +9,9 @@
     <string name="welcomeCountry">Country:</string>
     <string name="welcomeCity">City:</string>
     <string name="picture">Picture of the city</string>
+    <string name="srcCity">picture of the City</string>
+    <string name="welcome_to">Welcome to  </string>
+    <string name="txtCountry">Ukraine</string>
     <string-array name="foodList">
         <item>Restaurants</item>
         <item>Bars</item>
@@ -38,11 +41,12 @@
         <item>Post office</item>
     </string-array>
     <string-array name="country">
+        <item>"ChooseCountry"</item>
         <item>Ukraine</item>
         <item>Poland</item>
     </string-array>
     <string-array name="ukraine">
-        <item>"false"</item>
+        <item>"ChooseCity"</item>
         <item>Kyiv</item>
         <item>Zaporizhzhya</item>
         <item>Kharkiv</item>
@@ -55,6 +59,7 @@
         <item>Ivano-Frankivsk</item>
     </string-array>
     <string-array name="poland">
+        <item>"ChooseCity"</item>
         <item>Warsaw</item>
         <item>Krakow</item>
         <item>Lodz</item>

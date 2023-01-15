@@ -6,15 +6,48 @@
     android:id="@+id/startList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     tools:context=".ui.view.StartListFragment">
 
-  <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:id="@+id/welcomeCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/welcome_to"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/txtCountry"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeCity" />
+
+    <ImageView
+        android:id="@+id/srcCity"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/rest"
+        app:layout_constraintTop_toBottomOf="@id/welcomeCountry"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/srcCity" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/startListRecycler"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/text_margin"
       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
+      app:layout_constraintTop_toBottomOf="@id/srcCity"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
