@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.traveler.R
 import com.example.traveler.base.view.ViewBindingFragment
-import com.example.traveler.ui.view.StartListFragment
-import com.example.traveler.welcomescreen.WelcomeScreenFragment
 
 
 class MainActivity : AppCompatActivity() {

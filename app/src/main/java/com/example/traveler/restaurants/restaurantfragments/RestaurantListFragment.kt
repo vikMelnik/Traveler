@@ -9,7 +9,6 @@ import com.example.traveler.model.entities.listEntities.Restaurants
 import com.example.traveler.base.view.ViewBindingFragment
 import com.example.traveler.restaurants.RestaurantListAdapter
 import com.example.traveler.restaurants.viewmodel.RestaurantsListViewModel
-import com.example.traveler.ui.view.StartListFragment
 import com.example.traveler.utilites.hide
 import com.example.traveler.utilites.show
 import com.google.android.material.snackbar.Snackbar
@@ -59,11 +58,7 @@ class RestaurantListFragment: ViewBindingFragment<FragmentRestaurantsListRecycle
 					//setMovies(appState.moviesData)
 				}
 				restaurantListRecycler.adapter = adapter
-			//}
-//				progressBar.hide()
-//				//widgetGroup.show()
-//				val restaurantList = appState.data
-//				setData(restaurantList as List<Restaurants>)
+
 			}
 			is AppState.Error -> {
 				progressBar.hide()

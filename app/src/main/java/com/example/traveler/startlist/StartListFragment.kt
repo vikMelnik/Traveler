@@ -1,4 +1,4 @@
-package com.example.traveler.ui.view
+package com.example.traveler.startlist
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,14 +12,15 @@ import com.example.traveler.model.entities.TYPE_NAME
 import com.example.traveler.restaurants.restaurantfragments.RestaurantListFragment
 
 class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
-	FragmentStartListBinding::inflate) {
+	FragmentStartListBinding::inflate
+) {
 
-	interface OnItemViewClickListener{
+	interface OnItemViewClickListener {
 		fun onItemViewClick(startList: GeneralListTraveler)
 	}
 
 	companion object {
-		fun newInstance(bundle: Bundle):StartListFragment{
+		fun newInstance(bundle: Bundle): StartListFragment {
 			val fragment = StartListFragment()
 			fragment.arguments = bundle
 			return fragment
@@ -37,35 +38,41 @@ class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
 				"${requireArguments().getString("ARG_CITY")}"
 
 
-		binding.startListRecycler.adapter = StartListRecyclerAdapter(getGeneralList()
-		,object : OnItemViewClickListener {
-			override fun onItemViewClick(startList: GeneralListTraveler) {
-				when (startList.name) {
-					"Restaurants" -> {
-						parentFragmentManager
-							.beginTransaction()
-							.replace(R.id.container, RestaurantListFragment.newInstance())
-							.addToBackStack("")
-							.commitAllowingStateLoss()
+		binding.startListRecycler.adapter =
+			StartListRecyclerAdapter(getGeneralList(), object : OnItemViewClickListener {
+				override fun onItemViewClick(startList: GeneralListTraveler) {
+					when (startList.name) {
+						"Restaurants" -> {
+							parentFragmentManager
+								.beginTransaction()
+								.replace(R.id.container, RestaurantListFragment.newInstance())
+								.addToBackStack("")
+								.commitAllowingStateLoss()
+						}
 					}
 				}
-					}
-				}
-			 )
+			}
+			)
 
 	}
 
 	private fun getGeneralList(): ArrayList<GeneralListTraveler> {
 		val listGeneral = arrayListOf<GeneralListTraveler>()
-		listGeneral.add(GeneralListTraveler(getString(R.string.header),R.drawable.bg_earth, TYPE_HEADER))
-		for (i in this.resources.getStringArray(R.array.foodList).toList()){
-			listGeneral.add(GeneralListTraveler(i,R.drawable.pngwing1, TYPE_NAME))
+		listGeneral.add(
+			GeneralListTraveler(
+				getString(R.string.header),
+				R.drawable.bg_earth,
+				TYPE_HEADER
+			)
+		)
+		for (i in this.resources.getStringArray(R.array.foodList).toList()) {
+			listGeneral.add(GeneralListTraveler(i, R.drawable.pngwing1, TYPE_NAME))
 		}
-		for (i in this.resources.getStringArray(R.array.lifeList).toList()){
-			listGeneral.add(GeneralListTraveler(i,R.drawable.rest, TYPE_NAME))
+		for (i in this.resources.getStringArray(R.array.lifeList).toList()) {
+			listGeneral.add(GeneralListTraveler(i, R.drawable.rest, TYPE_NAME))
 		}
-		for (i in this.resources.getStringArray(R.array.servicesList).toList()){
-			listGeneral.add(GeneralListTraveler(i,R.drawable.cleaner, TYPE_NAME))
+		for (i in this.resources.getStringArray(R.array.servicesList).toList()) {
+			listGeneral.add(GeneralListTraveler(i, R.drawable.cleaner, TYPE_NAME))
 		}
 		return listGeneral
 	}

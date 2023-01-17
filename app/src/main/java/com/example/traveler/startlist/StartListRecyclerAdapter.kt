@@ -1,4 +1,4 @@
-package com.example.traveler.ui.view
+package com.example.traveler.startlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,6 @@ import com.example.traveler.databinding.FragmentRecyclerItemHeaderBinding
 import com.example.traveler.databinding.FragmentRecyclerItemStartGeneralBinding
 import com.example.traveler.model.entities.GeneralListTraveler
 import com.example.traveler.model.entities.TYPE_NAME
-import com.example.traveler.restaurants.restaurantfragments.RestaurantListFragment
 
 class StartListRecyclerAdapter(
 	private val listData: ArrayList<GeneralListTraveler>,
