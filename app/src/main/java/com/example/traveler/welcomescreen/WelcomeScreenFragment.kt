@@ -1,9 +1,13 @@
 package com.example.traveler.welcomescreen
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.example.traveler.R
 import com.example.traveler.base.view.ViewBindingFragment
 import com.example.traveler.databinding.FragmentWelcomeScreenBinding
@@ -20,9 +24,75 @@ class WelcomeScreenFragment : ViewBindingFragment<FragmentWelcomeScreenBinding>(
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		setupFabLocation()
 		setupSpinnerCountry()
 
 	}
+
+	private fun setupFabLocation() {
+		binding.mainFragmentFABLocation.setOnClickListener {
+			checkPermission()
+		}
+	}
+
+	private fun checkPermission() {
+		if (ContextCompat.checkSelfPermission(
+				requireContext(),
+				Manifest.permission.ACCESS_FINE_LOCATION
+		) == PackageManager.PERMISSION_GRANTED){
+			getLocation()
+		} else if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)){
+			// важно написать убедительную просьбу
+			explain()
+		} else {
+			mRequestPermission()
+		}
+
+	}
+
+	private fun getLocation() {
+
+	}
+
+	private val REQUEST_CODE = 998
+	private fun mRequestPermission() {
+		requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE)
+	}
+
+	override fun onRequestPermissionsResult(
+		requestCode: Int,
+		permissions: Array<out String>,
+		grantResults: IntArray
+	) {
+		if(requestCode == REQUEST_CODE){
+			for (i in permissions.indices){
+				if (permissions[i] == Manifest.permission.ACCESS_FINE_LOCATION
+					&& grantResults[i] == PackageManager.PERMISSION_GRANTED){
+					getLocation()
+				} else {
+					explain()
+				}
+			}
+		} else {
+			super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+		}
+	}
+
+	private fun explain() {
+		AlertDialog.Builder(requireContext())
+			.setTitle(resources.getString(R.string.dialog_rationale_title))
+			.setMessage(resources.getString(R.string.dialog_rationale_meaasge))
+			.setPositiveButton(resources.getString(R.string.dialog_rationale_give_access))
+			{ _, _ ->
+				mRequestPermission()
+			}
+			.setNegativeButton(getString(R.string.dialog_rationale_decline)) {
+					dialog, _ -> dialog.dismiss() }
+			.create()
+			.show()
+
+	}
+
 
 	private fun setupSpinnerCountry() {
 		val spinnerCountry = binding.nameSpinnerCountry
@@ -82,7 +152,7 @@ class WelcomeScreenFragment : ViewBindingFragment<FragmentWelcomeScreenBinding>(
 					putString("ARG_CITY", chooseCity)
 				}
 
-				if (chooseCity != "ChooseCity") {
+				if (chooseCity != "Choose City") {
 
 					parentFragmentManager.beginTransaction()
 						.replace(R.id.container, StartListFragment.newInstance(arguments!!))

@@ -10,6 +10,7 @@ import com.example.traveler.model.entities.GeneralListTraveler
 import com.example.traveler.model.entities.TYPE_HEADER
 import com.example.traveler.model.entities.TYPE_NAME
 import com.example.traveler.restaurants.restaurantfragments.RestaurantListFragment
+import com.example.traveler.utilites.ghfhg
 
 class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
 	FragmentStartListBinding::inflate
@@ -55,6 +56,7 @@ class StartListFragment : ViewBindingFragment<FragmentStartListBinding>(
 			)
 
 	}
+
 
 	private fun getGeneralList(): ArrayList<GeneralListTraveler> {
 		val listGeneral = arrayListOf<GeneralListTraveler>()

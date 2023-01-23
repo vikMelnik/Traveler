@@ -41,12 +41,12 @@
         <item>Post office</item>
     </string-array>
     <string-array name="country">
-        <item>"ChooseCountry"</item>
+        <item>"Choose Country"</item>
         <item>Ukraine</item>
         <item>Poland</item>
     </string-array>
     <string-array name="ukraine">
-        <item>"ChooseCity"</item>
+        <item>"Choose City"</item>
         <item>Kyiv</item>
         <item>Zaporizhzhya</item>
         <item>Kharkiv</item>
@@ -59,7 +59,7 @@
         <item>Ivano-Frankivsk</item>
     </string-array>
     <string-array name="poland">
-        <item>"ChooseCity"</item>
+        <item>"Choose City"</item>
         <item>Warsaw</item>
         <item>Krakow</item>
         <item>Lodz</item>
@@ -67,4 +67,20 @@
         <item>Poznan</item>
         <item>Wroclaw</item>
     </string-array>
+
+<!--   Strings for geolocation -->
+    <string name="dialog_button_close">Close</string>
+    <string name="dialog_title_no_gps">Access to geolocation close</string>
+    <string name="dialog_message_no_gps">Разрешите доступ к геолокации, если хотите
+узнать погоду текущего места</string>
+    <string name="dialog_title_gps_turned_off">GPS отключён</string>
+    <string name="dialog_message_last_location_unknown">Местонахождение неизвестно.
+Включите GPS, если хотите получить погоду по текущему адресу</string>
+    <string name="dialog_message_last_known_location">Показана последняя известная
+локация. Включите GPS, если хотите обновить местонахождение</string>
+    <string name="dialog_rationale_title">Доступ к геолокации</string>
+    <string name="dialog_rationale_meaasge">Объяснение</string>
+    <string name="dialog_rationale_give_access">Предоставить доступ</string>
+    <string name="dialog_rationale_decline">Не надо</string>
+    <string name="dialog_address_title">Ваш адрес</string>
 </resources>
