@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.example.traveler.startlist.StartListFragment
+import com.example.traveler.welcomescreen.WelcomeFragment
 import com.example.traveler.welcomescreen.WelcomeScreenFragment
 
 abstract class ViewBindingFragment<T : ViewBinding>(
@@ -34,5 +36,5 @@ abstract class ViewBindingFragment<T : ViewBinding>(
 	}
 
 	companion object {
-		fun newInstance() = WelcomeScreenFragment()	}
+		fun newInstance() = WelcomeFragment()	}
 }
